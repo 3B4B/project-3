@@ -10,6 +10,8 @@ This is for maintaining communication about your team's working meetings to "shi
 **A hand drawn / computer sketch / XD / some annotation visually of what needs to be done or what pieces get broken out. This could be drawn on over top of a screen shot of the item or a photo of whiteboard sketches. Whatever make the most sense to you.**
 
 **Initial questions / unknowns**
+  
+  
 **What elements do you expect are needed for this design?**
 - The post card itself 
 - The card's image
