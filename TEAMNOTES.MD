@@ -15,6 +15,7 @@ This is for maintaining communication about your team's working meetings to "shi
 - The card's image
 - The card's stamp
 - The post mark (including stamp and slotted element with adjustable location)
+
 **What properties do you expect these to have?**
 - The post card itself 
   - To: slot
