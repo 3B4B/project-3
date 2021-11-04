@@ -9,11 +9,21 @@ This is for maintaining communication about your team's working meetings to "shi
 - [Make a remixable post card for hax (#879)](https://github.com/elmsln/issues/issues/879)
 **A hand drawn / computer sketch / XD / some annotation visually of what needs to be done or what pieces get broken out. This could be drawn on over top of a screen shot of the item or a photo of whiteboard sketches. Whatever make the most sense to you.**
 
-![Scan from 2021-11-04 02_47_10 PM](https://user-images.githubusercontent.com/55817398/140401905-091ad95d-f1cb-47ff-931e-dbcac3ba9128.jpg)
-
 **Initial questions / unknowns**
 **What elements do you expect are needed for this design?**
+- The post card itself 
+- The card's image
+- The card's stamp
+- The post mark (including stamp and slotted element with adjustable location)
 **What properties do you expect these to have?**
+- The post card itself 
+  - To: slot
+  - From: slot
+  - The note under the image
+  - POST CARD title
+- The card's image
+- The card's stamp
+- The post mark (including stamp and slotted element with adjustable location)
 **Slots?**
 **What CSS / Styling unknowns are there presently?**
 **What states does it have? can you click / hover to engage with it?**
