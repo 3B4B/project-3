@@ -27,9 +27,13 @@ This is for maintaining communication about your team's working meetings to "shi
 - The card's image
 - The card's stamp
 - The post mark (including stamp and slotted element with adjustable location)
+  
 **Slots?**
+  
 **What CSS / Styling unknowns are there presently?**
+  
 **What states does it have? can you click / hover to engage with it?**
+  
 **What properties need mapped to HAX / the storybook? What can the user interact with?**
 
 ## Meeting notes
