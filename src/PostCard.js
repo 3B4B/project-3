@@ -93,7 +93,7 @@ export class PostCard extends LitElement {
       .line {
         grid-column: 3;
         grid-row: 2 / 5;
-        background: linear-gradient(#000, #000) no-repeat center/2px 100%;
+        background: linear-gradient(#ff4c4c, #ff4c4c) no-repeat center/2px 100%;
       }
 
       div {
