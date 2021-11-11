@@ -26,8 +26,12 @@
       font-weight: bold;
       padding: 40px;
     }
-    .joyful {
-      font-size: 2em;
+    .underline {
+      border-bottom: 2px solid blue; 
+      margin-left: 20%; 
+      margin-right: 20%; 
+      margin-top: 10px;
+      margin-bottom: 10px;  
     }
   </style>
   <title>Project 3: HAXTheWeb</title>
@@ -39,14 +43,25 @@
     <li><a href="/hax.html">HAX, card demo</a></li>
   </ul>
   <div class="wrapper">
-    <post-card need="joy">Some inner text that will render out</post-card>
-    <word-count>
-      <post-card need="nothing"><div>You feel much shame.</div></post-card>
-    </word-count>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout</a> <br>
+    <post-card>
+      <div slot="message">Hi from blah blah blah Im doing awesome</div>
+      <div slot="to" class="underline">OE Global Conference</div>
+      <div slot="from" class="underline">Penn State</div>
+    
+    </post-card>
+    <post-card></post-card>
+    <post-card></post-card>
+
+    <post-card><div></div></post-card>
+  
+  
+    
   </div>
   <script type="module">
-    import "./post-card.js";
+    import "/post-card.js";
     import "@lrnwebcomponents/word-count/word-count.js";
+
   </script>
 </body>
 
