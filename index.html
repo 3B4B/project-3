@@ -7,6 +7,10 @@
   <meta name="Description" content="Put your description here.">
   <base href="/">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Patrick+Hand&display=swap" rel="stylesheet">
+
   <style>
     html,
     body {
@@ -26,13 +30,6 @@
       font-weight: bold;
       padding: 40px;
     }
-    .underline {
-      border-bottom: 2px solid blue; 
-      margin-left: 20%; 
-      margin-right: 20%; 
-      margin-top: 10px;
-      margin-bottom: 10px;  
-    }
   </style>
   <title>Project 3: HAXTheWeb</title>
 </head>
@@ -46,8 +43,8 @@
     <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout</a> <br>
     <post-card>
       <div slot="message">Hi from blah blah blah Im doing awesome</div>
-      <div slot="to" class="underline">OE Global Conference</div>
-      <div slot="from" class="underline">Penn State</div>
+      <div slot="to">OE Global Conference</div>
+      <div slot="from">Penn State</div>
     
     </post-card>
     <post-card></post-card>
@@ -60,7 +57,6 @@
   </div>
   <script type="module">
     import "/post-card.js";
-    import "@lrnwebcomponents/word-count/word-count.js";
 
   </script>
 </body>
