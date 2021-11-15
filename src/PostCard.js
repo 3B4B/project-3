@@ -15,6 +15,12 @@ export class PostCard extends LitElement {
     this.label = 'post card';
     this.to = 'to:';
     this.from = 'from:';
+
+    setTimeout(() => {
+      import('./PostCardPhoto.js');
+      import('./PostCardStamp.js');
+      import('./PostCardPostmark.js');
+    }, 0);
   }
 
   // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
@@ -84,6 +90,9 @@ export class PostCard extends LitElement {
         grid-column: 4;
         grid-row: 1 / 3;
         font-family: 'Bebas Neue', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .image {
         grid-column: 1 / 3;
@@ -149,9 +158,15 @@ export class PostCard extends LitElement {
   render() {
     return html`
       <div class="header"><h2>${this.label}</h2></div>
-      <div class="postage"></div>
-      <div class="image"></div>
-      <div class="stamp"></div>
+      <div class="postage">
+        <post-card-postmark></post-card-postmark>
+      </div>
+      <div class="image">
+        <post-card-photo></post-card-photo>
+      </div>
+      <div class="stamp">
+        <post-card-stamp></post-card-stamp>
+      </div>
       <div class="tofrom">
         <h3>${this.to}</h3>
         <slot name="to" class="underline"></slot>
