@@ -76,10 +76,13 @@ These are dedicated status check-ins as this is a multi-week project
 - The post mark (including stamp and slotted element with adjustable location)
   - Locations slot
 ### Check-in 2
-This week where where able to.... 
-- sketch out our componet using grid, this will allow us to overlap some elements and hopefully will make implementing responsive design easier in the future
+This week we where able to.... 
+- sketch out our component using grid--this will allow us to overlap some elements and hopefully will make implementing responsive design easier in the future
 - research some CSS methods to help us achieve a realistic postcard 
 - extract correct colors, images, and other resources from the example post-card.
+- Set up correct fonts
+- Add the post card's background
+- Separate the image, postmark, and stamp into their own components and import these atoms into the molecule that is our post card
 
 Next week we plan to...
 - have the card look as similar as possible to the example post-card
