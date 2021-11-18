@@ -31,3 +31,6 @@ Navigate to the HAX page to see it in context. Make sure to change `post-card` i
 For most of the tools, the configuration is in the `package.json` to reduce the amount of files in your project.
 
 If you customize the configuration a lot, you can consider moving them to individual files.
+
+### Spec
+https://github.com/elmsln/issues/issues/879
