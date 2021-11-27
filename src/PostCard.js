@@ -61,7 +61,6 @@ export class PostCard extends LitElement {
     return css`
       :host {
         --width-body: 690px;
-        display: block;
         background-image: url('assets/postcard-bg.jpg');
         background-color: #f6f0e8;
         border: 1px solid grey;
@@ -88,7 +87,7 @@ export class PostCard extends LitElement {
       }
       .postage {
         grid-column: 4;
-        grid-row: 1 / 3;
+        grid-row: 1 / auto;
         font-family: 'Bebas Neue', sans-serif;
         display: flex;
         justify-content: center;
@@ -101,12 +100,30 @@ export class PostCard extends LitElement {
       }
       .stamp {
         grid-column: 5;
-        grid-row: 1 / 3;
+        grid-row: 1 / auto;
       }
       .tofrom {
         grid-column: 4 / 6;
-        grid-row: 3 / 5;
+        grid-row: 2 / 5;
         font-size: 22px;
+      }
+
+      .tofrom ::slotted(*) {
+        margin-left: 20%;
+        margin-right: 20%;
+        margin-bottom: 10px;
+        border-radius: 1px 3px 1px 2px;
+      }
+
+      h2,
+      h3 {
+        margin: 0px;
+      }
+
+      .tofrom h3 {
+        text-align: left;
+        transform: rotate(-1deg);
+        color: #ca8686;
       }
 
       .message {
@@ -125,29 +142,27 @@ export class PostCard extends LitElement {
         padding: 10px;
       }
 
-      .tofrom ::slotted(*) {
-        border-bottom: 4px solid blue;
-        margin-left: 20%;
-        margin-right: 20%;
-        margin-bottom: 10px;
-        border-radius: 1px 3px 1px 2px;
+      img {
+        width: calc(var(--width-body) * (17 / 25));
+        display: block;
+        mix-blend-mode: multiply;
       }
 
-      /* DO NOT DELETE -- using this to test adjustments to TO and FROM underlines */
-      /* .underline::slotted(*) {
-        display: inline;
-        text-align: center;
-        border-bottom: 4px solid blue;
-        padding: 0px 5%;
-      } */
+      .backgroundLines {
+        display: block;
+        z-index: 1;
+        transform: translate(35%, 5%);
 
-      h2,
-      h3 {
-        margin: 0px;
+        /*Below selectors are only used to circumvent dotted lines, remove later */
+        padding: 0px;
+        border: none;
       }
 
-      .tofrom h3 {
-        text-align: left;
+      .foregroundElements {
+        z-index: 2;
+        display: inline-grid;
+        position: absolute;
+        width: calc(var(--width-body) - 20px);
       }
     `;
   }
@@ -156,27 +171,33 @@ export class PostCard extends LitElement {
   Will need to use Z index for layering 
   */
   render() {
+    // Couldn't be commented due to linter error, if needed place as 1st el in foreground div: <div class="header"><h2>${this.label}</h2></div>
     return html`
-      <div class="header"><h2>${this.label}</h2></div>
-      <div class="postage">
-        <post-card-postmark></post-card-postmark>
+      <div class="backgroundLines">
+        <img src="assets/postcard-title-with-lines.png" alt="" />
       </div>
-      <div class="image">
-        <post-card-photo></post-card-photo>
+
+      <div class="foregroundElements">
+        <div class="postage">
+          <post-card-postmark></post-card-postmark>
+        </div>
+        <div class="image">
+          <post-card-photo></post-card-photo>
+        </div>
+        <div class="stamp">
+          <post-card-stamp></post-card-stamp>
+        </div>
+        <div class="tofrom">
+          <h3>${this.to}</h3>
+          <slot name="to"></slot>
+          <h3>${this.from}</h3>
+          <slot name="from"></slot>
+        </div>
+        <div class="message">
+          <slot name="message"></slot>
+        </div>
+        <!-- <div class="line"></div> -->
       </div>
-      <div class="stamp">
-        <post-card-stamp></post-card-stamp>
-      </div>
-      <div class="tofrom">
-        <h3>${this.to}</h3>
-        <slot name="to" class="underline"></slot>
-        <h3>${this.from}</h3>
-        <slot name="from"></slot>
-      </div>
-      <div class="message">
-        <slot name="message"></slot>
-      </div>
-      <div class="line"></div>
     `;
   }
 
