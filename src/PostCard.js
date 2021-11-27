@@ -87,7 +87,7 @@ export class PostCard extends LitElement {
       }
       .postage {
         grid-column: 4;
-        grid-row: 1 / 3;
+        grid-row: 1 / auto;
         font-family: 'Bebas Neue', sans-serif;
         display: flex;
         justify-content: center;
@@ -100,12 +100,30 @@ export class PostCard extends LitElement {
       }
       .stamp {
         grid-column: 5;
-        grid-row: 1 / 3;
+        grid-row: 1 / auto;
       }
       .tofrom {
         grid-column: 4 / 6;
-        grid-row: 3 / 5;
+        grid-row: 2 / 5;
         font-size: 22px;
+      }
+
+      .tofrom ::slotted(*) {
+        margin-left: 20%;
+        margin-right: 20%;
+        margin-bottom: 10px;
+        border-radius: 1px 3px 1px 2px;
+      }
+
+      h2,
+      h3 {
+        margin: 0px;
+      }
+
+      .tofrom h3 {
+        text-align: left;
+        transform: rotate(-1deg);
+        color: #ca8686;
       }
 
       .message {
@@ -122,30 +140,6 @@ export class PostCard extends LitElement {
       div {
         border: 2px dotted purple;
         padding: 10px;
-      }
-
-      .tofrom ::slotted(*) {
-        margin-left: 20%;
-        margin-right: 20%;
-        margin-bottom: 10px;
-        border-radius: 1px 3px 1px 2px;
-      }
-
-      /* DO NOT DELETE -- using this to test adjustments to TO and FROM underlines */
-      /* .underline::slotted(*) {
-        display: inline;
-        text-align: center;
-        border-bottom: 4px solid blue;
-        padding: 0px 5%;
-      } */
-
-      h2,
-      h3 {
-        margin: 0px;
-      }
-
-      .tofrom h3 {
-        text-align: left;
       }
 
       img {
@@ -195,7 +189,7 @@ export class PostCard extends LitElement {
         </div>
         <div class="tofrom">
           <h3>${this.to}</h3>
-          <slot name="to" class="underline"></slot>
+          <slot name="to"></slot>
           <h3>${this.from}</h3>
           <slot name="from"></slot>
         </div>
