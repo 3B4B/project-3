@@ -61,7 +61,6 @@ export class PostCard extends LitElement {
     return css`
       :host {
         --width-body: 690px;
-        display: block;
         background-image: url('assets/postcard-bg.jpg');
         background-color: #f6f0e8;
         border: 1px solid grey;
@@ -126,7 +125,6 @@ export class PostCard extends LitElement {
       }
 
       .tofrom ::slotted(*) {
-        border-bottom: 4px solid blue;
         margin-left: 20%;
         margin-right: 20%;
         margin-bottom: 10px;
@@ -149,6 +147,29 @@ export class PostCard extends LitElement {
       .tofrom h3 {
         text-align: left;
       }
+
+      img {
+        width: calc(var(--width-body) * (17 / 25));
+        display: block;
+        mix-blend-mode: multiply;
+      }
+
+      .backgroundLines {
+        display: block;
+        z-index: 1;
+        transform: translate(35%, 5%);
+
+        /*Below selectors are only used to circumvent dotted lines, remove later */
+        padding: 0px;
+        border: none;
+      }
+
+      .foregroundElements {
+        z-index: 2;
+        display: inline-grid;
+        position: absolute;
+        width: calc(var(--width-body) - 20px);
+      }
     `;
   }
 
@@ -156,27 +177,33 @@ export class PostCard extends LitElement {
   Will need to use Z index for layering 
   */
   render() {
+    // Couldn't be commented due to linter error, if needed place as 1st el in foreground div: <div class="header"><h2>${this.label}</h2></div>
     return html`
-      <div class="header"><h2>${this.label}</h2></div>
-      <div class="postage">
-        <post-card-postmark></post-card-postmark>
+      <div class="backgroundLines">
+        <img src="assets/postcard-title-with-lines.png" alt="" />
       </div>
-      <div class="image">
-        <post-card-photo></post-card-photo>
+
+      <div class="foregroundElements">
+        <div class="postage">
+          <post-card-postmark></post-card-postmark>
+        </div>
+        <div class="image">
+          <post-card-photo></post-card-photo>
+        </div>
+        <div class="stamp">
+          <post-card-stamp></post-card-stamp>
+        </div>
+        <div class="tofrom">
+          <h3>${this.to}</h3>
+          <slot name="to" class="underline"></slot>
+          <h3>${this.from}</h3>
+          <slot name="from"></slot>
+        </div>
+        <div class="message">
+          <slot name="message"></slot>
+        </div>
+        <!-- <div class="line"></div> -->
       </div>
-      <div class="stamp">
-        <post-card-stamp></post-card-stamp>
-      </div>
-      <div class="tofrom">
-        <h3>${this.to}</h3>
-        <slot name="to" class="underline"></slot>
-        <h3>${this.from}</h3>
-        <slot name="from"></slot>
-      </div>
-      <div class="message">
-        <slot name="message"></slot>
-      </div>
-      <div class="line"></div>
     `;
   }
 
