@@ -1,8 +1,12 @@
 // dependencies / things imported
 import { LitElement, html, css } from 'lit';
 
+// TODO: Import to be deleted or used based on whether dispatchEvent works
+// import { I18NMixin } from "@lrnwebcomponents/i18n-manager/lib/I18NMixin.js";
+
 // EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
 // which has the magic life-cycles and developer experience below added
+//
 export class PostCard extends LitElement {
   // a convention I enjoy so you can change the tag name in 1 place
   static get tag() {
@@ -12,9 +16,34 @@ export class PostCard extends LitElement {
   // HTMLElement life-cycle, built in; use this for setting defaults
   constructor() {
     super();
-    this.label = 'post card';
-    this.to = 'to:';
-    this.from = 'from:';
+    // this.label = 'post card';
+    // this.to = 'to:';
+    // this.from = 'from:';
+
+    this.t = {
+      label: 'Post Card',
+      to: 'To',
+      from: 'From',
+    };
+
+    // TODO: Code snippet to be deleted or used based on whether dispatchEvent works
+    // this.registerTranslation({
+    //   context: this,
+    //   basePath: import.meta.url,
+    //   locales: ["es"],
+    // });
+
+    window.dispatchEvent(
+      new CustomEvent('i18n-manager-register-element', {
+        detail: {
+          context: this,
+          namespace: 'post-card',
+          localesPath: `${decodeURIComponent(import.meta.url)}/../locales`,
+          updateCallback: 'render',
+          locales: ['en', 'es'],
+        },
+      })
+    );
 
     setTimeout(() => {
       import('./PostCardPhoto.js');
@@ -24,13 +53,15 @@ export class PostCard extends LitElement {
   }
 
   // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
-  static get properties() {
-    return {
-      label: { type: String },
-      to: { type: String },
-      from: { type: String },
-    };
-  }
+
+  // **Not necessary in I18N because everything is established in constructor
+  // static get properties() {
+  //   return {
+  //     label: { type: String },
+  //     to: { type: String },
+  //     from: { type: String },
+  //   };
+  // }
 
   // updated fires every time a property defined above changes
   // this allows you to react to variables changing and use javascript to perform logic
@@ -188,9 +219,9 @@ export class PostCard extends LitElement {
           <post-card-stamp></post-card-stamp>
         </div>
         <div class="tofrom">
-          <h3>${this.to}</h3>
+          <h3>${this.t.to}</h3>
           <slot name="to"></slot>
-          <h3>${this.from}</h3>
+          <h3>${this.t.from}</h3>
           <slot name="from"></slot>
         </div>
         <div class="message">
