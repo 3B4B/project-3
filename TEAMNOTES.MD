@@ -95,17 +95,113 @@ Next week we plan to...
 
 ### Check-in 3
 This week(s) we where able to...
-- implement the postmark, stamp, and post card image
-- tilt the image and postcard
-- start integrating I18N
+- implement the postmark, stamp, and post card images:
+  ```
+  <div class="foregroundElements">
+    <div class="postage">
+      <post-card-postmark></post-card-postmark>
+    </div>
+    <div class="image">
+      <post-card-photo></post-card-photo>
+    </div>
+    <div class="stamp">
+      <post-card-stamp></post-card-stamp>
+    </div>
+    <div class="tofrom">
+      <h3>${this.t.to}</h3>
+      <slot name="to"></slot>
+      <h3>${this.t.from}</h3>
+      <slot name="from"></slot>
+    </div>
+    <div class="message">
+      <slot name="message"></slot>
+    </div>
+  </div>
+  ```
+- tilt the image and stamp:
+  ```
+  .cardImage {
+    width: var(--img-width);
+    height: calc(var(--img-width) * 0.7);
+    z-index: 2;
+    transform: rotate(-3deg);
+   }
+  ```
+- start integrating I18N:
+  ```
+  this.t = {
+      label: 'Post Card',
+      to: 'To',
+      from: 'From',
+  };
 
-Next week we plan too...
+  window.dispatchEvent(
+    new CustomEvent('i18n-manager-register-element', {
+      detail: {
+        context: this,
+        namespace: 'post-card',
+        localesPath: `${decodeURIComponent(import.meta.url)}/../locales`,
+        updateCallback: 'render',
+        locales: ['en', 'es'],
+      },
+    })
+  );
+  ```
+- update the background, stamp, and image detailing to better reflect the spec
+  - tape pieces over image, shadow behind image:
+    ```
+    .cardShadow {
+      width: calc(var(--img-width) * 1.05);
+      height: calc(var(--img-width) * 0.75);
+      z-index: 2;
+      opacity: 0.5;
+      transform: translate(1%, 2.5%) rotate(0.25deg);
+    }
+
+    .cardImage {
+      width: var(--img-width);
+      height: calc(var(--img-width) * 0.7);
+      z-index: 2;
+      transform: rotate(-3deg);
+    }
+
+    .cardTape {
+      width: auto;
+      height: calc(var(--img-width) * 0.8);
+      z-index: 3;
+    }
+    ```
+  - stamp image laid over a stamp background to make it look more realistic:
+    ```
+    .stampImage {
+      width: var(--img-width);
+      height: calc(var(--img-width) * 1.25);
+      justify-self: center;
+      padding-top: 10px;
+      transform: rotate(1.5deg);
+      z-index: 3;
+    }
+
+    .stampBackground {
+      width: calc(var(--img-width) + 20px);
+      height: calc(var(--img-width) * 1.25 + 20px);
+      z-index: 2;
+    }
+    ```
+
+Next week we plan to...
 - work on overlapping postmark and title 
-- continue to tweak CSS properties to improve the look of the card
+- continue to tweak CSS properties to improve the appearance of the card
 - wire the card to hax
 - remove all div borders
 
-Right now our card looks similar to the example card, but minor adjustments still need to be made including exact coloring, positioning, and font styles. 
+What insights you gained from the class activity to implement:
+- We were able to implement some of the suggested changes, including tape over the image and (starting) the i18n integration.
+- Going forward, we will be increasing font size and making some visual updates to the postcard's layout to better reflect.
+- We'll also be wiring our card to hax and adding storybook details as we approach a final product.
+
+**_Right now our card looks similar to the example card, but minor adjustments still need to be made including exact coloring, positioning, and font styles._**
+
 ### Check-in 4
 - 
 - 
