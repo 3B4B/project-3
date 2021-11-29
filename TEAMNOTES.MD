@@ -94,8 +94,18 @@ Next week we plan to...
 - ensuring all nessisary texts/elements are slots 
 
 ### Check-in 3
-- 
-- 
+This week(s) we where able to...
+- implement the postmark, stamp, and post card image
+- tilt the image and postcard
+- start integrating I18N
+
+Next week we plan too...
+- work on overlapping postmark and title 
+- continue to tweak CSS properties to improve the look of the card
+- wire the card to hax
+- remove all div borders
+
+Right now our card looks similar to the example card, but minor adjustments still need to be made including exact coloring, positioning, and font styles. 
 ### Check-in 4
 - 
 - 
