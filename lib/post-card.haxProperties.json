@@ -13,9 +13,21 @@
     "settings": {
       "configure": [
         {
-          "property": "need",
-          "title": "Need",
-          "description": "What we all need",
+          "property": "to",
+          "title": "To",
+          "description": "Who is this going to?",
+          "inputMethod": "textfield"
+        },
+        {
+          "property": "from",
+          "title": "From",
+          "description": "Who are you?",
+          "inputMethod": "textfield"
+        },
+        {
+          "property": "message",
+          "title": "Message",
+          "description": "What do you want to say?",
           "inputMethod": "textfield"
         }
       ],

@@ -1274,7 +1274,7 @@
   dependencies:
     "lit" "2.0.0"
 
-"@lrnwebcomponents/i18n-manager@^4.0.1":
+"@lrnwebcomponents/i18n-manager@^4.0.1", "@lrnwebcomponents/i18n-manager@4.0.1":
   "integrity" "sha512-mG2XUZCmsjzu5YeJoBKUiPpD5ZekIikS1YtypCiHOhv+guPkYvCh925pP7hGxSAVM0xCansZSExvRK2u3i6YKQ=="
   "resolved" "https://registry.npmjs.org/@lrnwebcomponents/i18n-manager/-/i18n-manager-4.0.1.tgz"
   "version" "4.0.1"

@@ -55,13 +55,13 @@ export class PostCard extends LitElement {
   // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
 
   // **Not necessary in I18N because everything is established in constructor
-  // static get properties() {
-  //   return {
-  //     label: { type: String },
-  //     to: { type: String },
-  //     from: { type: String },
-  //   };
-  // }
+  static get properties() {
+    return {
+      label: { type: String },
+      to: { type: String },
+      from: { type: String },
+    };
+  }
 
   // updated fires every time a property defined above changes
   // this allows you to react to variables changing and use javascript to perform logic
