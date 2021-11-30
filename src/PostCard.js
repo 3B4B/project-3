@@ -43,6 +43,9 @@ export class PostCard extends LitElement {
       t: {
         type: Object,
       },
+      to: { type: String, reflect: true },
+      from: { type: String, reflect: true },
+      message: { type: String, reflect: true },
     };
   }
 
@@ -182,12 +185,12 @@ export class PostCard extends LitElement {
         </div>
         <div class="tofrom">
           <h3>${this.t.send}</h3>
-          <slot name="to"></slot>
+          <p>${this.to}</p>
           <h3>${this.t.receive}</h3>
-          <slot name="from"></slot>
+          <p>${this.from}</p>
         </div>
         <div class="message">
-          <slot name="message"></slot>
+          <p>${this.message}</p>
         </div>
         <!-- <div class="line"></div> -->
       </div>
