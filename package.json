@@ -59,7 +59,8 @@
     "@lrnwebcomponents/replace-tag": "^4.0.4",
     "@lrnwebcomponents/deduping-fix": "^4.0.0",
     "web-animations-js": "2.3.2",
-    "@webcomponents/webcomponentsjs": "2.6.0"
+    "@webcomponents/webcomponentsjs": "2.6.0",
+    "@lrnwebcomponents/i18n-manager": "4.0.1"
   },
   "keywords": [
     "web-components",

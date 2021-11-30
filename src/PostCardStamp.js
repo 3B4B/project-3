@@ -37,6 +37,7 @@ export class PostCardStamp extends SimpleColors {
           display: inline-grid;
           grid-template-columns: 1;
           grid-template-rows: 1;
+          padding-top: 10%;
         }
         img {
           grid-column: 1;

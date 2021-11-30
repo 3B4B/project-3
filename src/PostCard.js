@@ -94,7 +94,7 @@ export class PostCard extends LitElement {
         --width-body: 690px;
         background-image: url('assets/postcard-bg.jpg');
         background-color: #f6f0e8;
-        border: 1px solid grey;
+        border: 1px solid lightgrey;
         border-radius: 4;
         box-shadow: 3px 3px 3px grey;
         margin: 20px;
@@ -102,8 +102,8 @@ export class PostCard extends LitElement {
         width: var(--width-body);
         text-align: center;
         display: inline-grid;
-        grid-template-rows: 0.5fr 1fr 1fr 1fr 0.25fr;
-        grid-template-columns: 1fr 1fr 0.2fr 1fr 1fr;
+        grid-template-rows: 1fr 2fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         text-transform: uppercase;
 
         font-family: 'Patrick Hand', cursive;
@@ -170,7 +170,6 @@ export class PostCard extends LitElement {
 
       div {
         border: 2px dotted purple;
-        padding: 10px;
       }
 
       img {
@@ -193,7 +192,8 @@ export class PostCard extends LitElement {
         z-index: 2;
         display: inline-grid;
         position: absolute;
-        width: calc(var(--width-body) - 20px);
+        width: var(--width-body);
+        height: calc(var(--width-body) * (2 / 3));
       }
     `;
   }

@@ -10,7 +10,7 @@ export class PostCardPhoto extends SimpleColors {
       '../assets/postcard-photo-stock.jpg',
       import.meta.url
     ).href;
-    this.alt = 'Snowy trees';
+    this.alt = '';
   }
 
   static get tag() {
@@ -32,9 +32,39 @@ export class PostCardPhoto extends SimpleColors {
         :host {
           --img-width: 310px;
         }
+
+        div {
+          display: inline-grid;
+          grid-template-columns: 1;
+          grid-template-rows: 1;
+          align-items: center;
+        }
+
         img {
+          grid-column: 1;
+          grid-row: 1;
+          justify-self: center;
+        }
+
+        .cardShadow {
+          width: calc(var(--img-width) * 1.05);
+          height: calc(var(--img-width) * 0.75);
+          z-index: 2;
+          opacity: 0.5;
+          transform: translate(1%, 2.5%) rotate(0.25deg);
+        }
+
+        .cardImage {
           width: var(--img-width);
           height: calc(var(--img-width) * 0.7);
+          z-index: 2;
+          transform: rotate(-3deg);
+        }
+
+        .cardTape {
+          width: auto;
+          height: calc(var(--img-width) * 0.8);
+          z-index: 3;
         }
       `,
     ];
@@ -43,7 +73,13 @@ export class PostCardPhoto extends SimpleColors {
   render() {
     return html`
       <div>
-        <span><img src="${this.image}" alt="${this.alt}" /></span>
+        <img
+          src="../assets/postcard-photo-shadow.png"
+          alt=""
+          class="cardShadow"
+        />
+        <img src="${this.image}" alt="${this.alt}" class="cardImage" />
+        <img src="../assets/postcard-tape.png" alt="" class="cardTape" />
       </div>
     `;
   }
