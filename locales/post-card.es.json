@@ -1,5 +1,5 @@
 {
     "label": "postal",
-    "to": "a",
-    "from": "de"
+    "send": "a",
+    "receive": "de"
 }
