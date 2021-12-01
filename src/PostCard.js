@@ -26,7 +26,7 @@ export class PostCard extends LitElement {
           namespace: 'post-card',
           localesPath: new URL('../locales', import.meta.url).href,
           updateCallback: 'render',
-          locales: ['es'],
+          locales: ['es', 'de', 'fr', 'it', 'ja', 'zh_CN'],
         },
       })
     );
@@ -68,13 +68,6 @@ export class PostCard extends LitElement {
         font-family: 'Patrick Hand', cursive;
       }
 
-      .header {
-        grid-column: 1 / span 5;
-        grid-row: 1;
-        letter-spacing: 4px;
-        font-size: 30px;
-        font-weight: 400px;
-      }
       .postage {
         grid-column: 4;
         grid-row: 1 / auto;
@@ -131,20 +124,32 @@ export class PostCard extends LitElement {
         border: 2px dotted purple;
       }
 
-      img {
-        width: calc(var(--width-body) * (17 / 25));
-        display: block;
-        mix-blend-mode: multiply;
-      }
-
       .backgroundLines {
         display: block;
         z-index: 1;
-        transform: translate(35%, 5%);
+        padding: 0px;
+        border: none;
+        width: var(--width-body);
+        height: calc(var(--width-body) * (2 / 3));
 
         /*Below selectors are only used to circumvent dotted lines, remove later */
         padding: 0px;
         border: none;
+      }
+
+      .label {
+        letter-spacing: 16px;
+        font-size: 50px;
+        color: rgb(202, 134, 134);
+        font-weight: 400;
+        z-index: 2;
+        text-align: center;
+      }
+
+      .backgroundLines img {
+        width: calc(var(--width-body) * (17 / 25));
+        mix-blend-mode: multiply;
+        transform: translate(14%, -10%);
       }
 
       .foregroundElements {
@@ -167,7 +172,8 @@ export class PostCard extends LitElement {
 
     return html`
       <div class="backgroundLines">
-        <img src="assets/postcard-title-with-lines.png" alt="" />
+        <h2 class="label">${this.t.label}</h2>
+        <img src="assets/postcard-lines.png" alt="" />
       </div>
 
       <div class="foregroundElements">
