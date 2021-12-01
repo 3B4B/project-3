@@ -46,26 +46,73 @@ export class PostCard extends LitElement {
     };
   }
 
-  // CSS - specific to Lit
+  // CSS
   static get styles() {
     return css`
       :host {
         --width-body: 690px;
-        background-image: url('assets/postcard-bg.jpg');
-        background-color: #f6f0e8;
-        border: 1px solid lightgrey;
-        border-radius: 4;
-        box-shadow: 3px 3px 3px grey;
-        margin: 20px;
         height: calc(var(--width-body) * (2 / 3));
         width: var(--width-body);
+        margin: 20px;
+        display: inline-grid;
+        grid-template-rows: 1fr 2fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .entireCard {
+        height: calc(var(--width-body) * (2 / 3));
+        width: var(--width-body);
+        background-image: url(assets/postcard-bg.jpg);
+        background-color: rgb(246, 240, 232);
+        border: 1px solid lightgrey;
+        box-shadow: grey 3px 3px 3px;
         text-align: center;
         display: inline-grid;
         grid-template-rows: 1fr 2fr 1fr;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         text-transform: uppercase;
-
         font-family: 'Patrick Hand', cursive;
+      }
+
+      div {
+        border: 2px dotted purple;
+      }
+
+      .backgroundLines {
+        display: block;
+        z-index: 1;
+        padding: 0px;
+        border: none;
+        width: var(--width-body);
+        height: calc(var(--width-body) * (2 / 3));
+
+        /*Below selectors are only used to circumvent dotted lines, remove later */
+        padding: 0px;
+        border: none;
+      }
+
+      .label {
+        letter-spacing: 16px;
+        font-size: 50px;
+        font-weight: 400;
+        color: rgb(202, 134, 134);
+        text-align: center;
+        z-index: 2;
+      }
+
+      .backgroundLines img {
+        width: calc(var(--width-body) * (17 / 25));
+        mix-blend-mode: multiply;
+        transform: translate(14%, -10%);
+      }
+
+      .foregroundElements {
+        z-index: 2;
+        display: inline-grid;
+        position: absolute;
+        width: var(--width-body);
+        height: calc(var(--width-body) * (2 / 3));
       }
 
       .postage {
@@ -76,15 +123,18 @@ export class PostCard extends LitElement {
         justify-content: center;
         align-items: center;
       }
+
       .image {
         grid-column: 1 / 3;
         grid-row: 2 / 4;
         border-radius: 1px;
       }
+
       .stamp {
         grid-column: 5;
         grid-row: 1 / auto;
       }
+
       .tofrom {
         grid-column: 4 / 6;
         grid-row: 2 / 5;
@@ -114,50 +164,53 @@ export class PostCard extends LitElement {
         grid-row: 4;
       }
 
-      .line {
-        grid-column: 3;
-        grid-row: 2 / 5;
-        background: linear-gradient(#ff4c4c, #ff4c4c) no-repeat center/2px 100%;
+      /* @media screen and (min-width: 300px) and (max-width: 650px) {
+        :host {
+          transform: scale(.3);
+          transition: all 0.35s ease-in-out;
+        }
+      }
+      @media screen and (min-width: 650px) and (max-width: 1000px) {
+        :host {
+          transform: scale(.8);
+          transition: all 0.35s ease-in-out;
+        }
+      } */
+
+      /* Query sizes sourced from: https://www.geeksforgeeks.org/how-to-target-desktop-tablet-and-mobile-using-media-query/ */
+      @media (max-width: 370px) {
+        :host {
+          transform: scale(0.25);
+          transition: all 0.35s ease-in-out;
+        }
       }
 
-      div {
-        border: 2px dotted purple;
+      @media (min-width: 371px) and (max-width: 480px) {
+        :host {
+          transform: scale(0.5);
+          transition: all 0.35s ease-in-out;
+        }
       }
 
-      .backgroundLines {
-        display: block;
-        z-index: 1;
-        padding: 0px;
-        border: none;
-        width: var(--width-body);
-        height: calc(var(--width-body) * (2 / 3));
-
-        /*Below selectors are only used to circumvent dotted lines, remove later */
-        padding: 0px;
-        border: none;
+      @media (min-width: 481px) and (max-width: 600px) {
+        :host {
+          transform: scale(0.6);
+          transition: all 0.35s ease-in-out;
+        }
       }
 
-      .label {
-        letter-spacing: 16px;
-        font-size: 50px;
-        color: rgb(202, 134, 134);
-        font-weight: 400;
-        z-index: 2;
-        text-align: center;
+      @media (min-width: 601px) and (max-width: 720px) {
+        :host {
+          transform: scale(0.8);
+          transition: all 0.35s ease-in-out;
+        }
       }
 
-      .backgroundLines img {
-        width: calc(var(--width-body) * (17 / 25));
-        mix-blend-mode: multiply;
-        transform: translate(14%, -10%);
-      }
-
-      .foregroundElements {
-        z-index: 2;
-        display: inline-grid;
-        position: absolute;
-        width: var(--width-body);
-        height: calc(var(--width-body) * (2 / 3));
+      @media (min-width: 721px) {
+        :host {
+          transform: scale(1);
+          transition: all 0.35s ease-in-out;
+        }
       }
     `;
   }
@@ -166,36 +219,35 @@ export class PostCard extends LitElement {
   Will need to use Z index for layering 
   */
   render() {
-    // Couldn't be commented due to linter error, if needed place as 1st el in foreground div: <div class="header"><h2>${this.label}</h2></div>
-
     console.log(navigator.language); // Leave this in for now, using to test something with I18N
 
     return html`
-      <div class="backgroundLines">
-        <h2 class="label">${this.t.label}</h2>
-        <img src="assets/postcard-lines.png" alt="" />
-      </div>
+      <div class="entireCard">
+        <div class="backgroundLines">
+          <h2 class="label">${this.t.label}</h2>
+          <img src="assets/postcard-lines.png" alt="" />
+        </div>
 
-      <div class="foregroundElements">
-        <div class="postage">
-          <post-card-postmark></post-card-postmark>
+        <div class="foregroundElements">
+          <div class="postage">
+            <post-card-postmark></post-card-postmark>
+          </div>
+          <div class="image">
+            <post-card-photo></post-card-photo>
+          </div>
+          <div class="stamp">
+            <post-card-stamp></post-card-stamp>
+          </div>
+          <div class="tofrom">
+            <h3>${this.t.send}</h3>
+            <slot name="to"></slot>
+            <h3>${this.t.receive}</h3>
+            <slot name="from"></slot>
+          </div>
+          <div class="message">
+            <slot name="message"></slot>
+          </div>
         </div>
-        <div class="image">
-          <post-card-photo></post-card-photo>
-        </div>
-        <div class="stamp">
-          <post-card-stamp></post-card-stamp>
-        </div>
-        <div class="tofrom">
-          <h3>${this.t.send}</h3>
-          <slot name="to"></slot>
-          <h3>${this.t.receive}</h3>
-          <slot name="from"></slot>
-        </div>
-        <div class="message">
-          <slot name="message"></slot>
-        </div>
-        <!-- <div class="line"></div> -->
       </div>
     `;
   }

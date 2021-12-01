@@ -48,10 +48,10 @@ export class PostCardPhoto extends SimpleColors {
 
         .cardShadow {
           width: calc(var(--img-width) * 1.05);
-          height: calc(var(--img-width) * 0.75);
+          height: calc(var(--img-width) * 0.78);
           z-index: 2;
           opacity: 0.5;
-          transform: translate(1%, 2.5%) rotate(0.25deg);
+          transform: translate(1%, 1.5%) rotate(0.5deg);
         }
 
         .cardImage {
