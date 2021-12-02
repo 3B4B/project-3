@@ -29,7 +29,14 @@
           "title": "Message",
           "description": "What do you want to say?",
           "inputMethod": "textfield"
+        },
+        {
+          "property": "src",
+          "title": "Source",
+          "description": "Where is your photo located?",
+          "inputMethod": "fileupload"
         }
+
       ],
       "advanced": [
       ]
@@ -40,9 +47,11 @@
         "properties": {
             "to": "the future",
             "from": "the past",
-            "message": "How I met your mother"
+            "message": "How I met your mother",
+            "src": "http://media.liveauctiongroup.net/i/11189/11535427_1.jpg?v=8CE770C8F1EEC60"
 
         }
+
       }
     ]
   }

@@ -2,14 +2,13 @@
 import { html, css } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors';
 
+const tape = new URL('../assets/postcard-tape.png', import.meta.url).href;
+
 export class PostCardPhoto extends SimpleColors {
   constructor() {
     super();
     this.accentColor = 'grey';
-    this.image = new URL(
-      '../assets/postcard-photo-stock.jpg',
-      import.meta.url
-    ).href;
+    this.image = new URL(this.image, import.meta.url).href;
     this.alt = '';
   }
 
@@ -20,7 +19,7 @@ export class PostCardPhoto extends SimpleColors {
   static get properties() {
     return {
       ...super.properties,
-      image: { type: String, reflect: true },
+      image: { type: String },
       alt: { type: String, reflect: true },
     };
   }
@@ -79,7 +78,7 @@ export class PostCardPhoto extends SimpleColors {
           class="cardShadow"
         />
         <img src="${this.image}" alt="${this.alt}" class="cardImage" />
-        <img src="../assets/postcard-tape.png" alt="" class="cardTape" />
+        <img src="${tape}" alt="" class="cardTape" />
       </div>
     `;
   }
