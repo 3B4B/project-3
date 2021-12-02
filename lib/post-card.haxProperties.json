@@ -1,6 +1,6 @@
 {
-    "canScale": false,
-    "canPosition": false,
+    "canScale": true,
+    "canPosition": true,
     "canEditSource": true,
     "contentEditable": true,
     "gizmo": {
@@ -38,9 +38,11 @@
       {
         "tag": "post-card",
         "properties": {
-            "need": "the future"
-        },
-        "content": "<p>Some internal slotted content</p>"
+            "to": "the future",
+            "from": "the past",
+            "message": "How I met your mother"
+
+        }
       }
     ]
   }
