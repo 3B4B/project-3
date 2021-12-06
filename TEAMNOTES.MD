@@ -203,5 +203,24 @@ What insights you gained from the class activity to implement:
 **_Right now our card looks similar to the example card, but minor adjustments still need to be made including exact coloring, positioning, and font styles._**
 
 ### Check-in 4
-- 
-- 
+**_This was a super busy week for the group, so we were unable to complete the assignment to fully match the Post Card spec. However, we have devloped a plan which we believe will allow us to remain on track and complete the project by the December 14 due date._**
+
+#### What we completed this week:
+- Fix label ("Post Card") so it's a variable rather than part of the background image
+- Make CSS updates to allow for postmark overlap on label, centering of label on postcard regardless of I18N language
+- Compeleted I18N setup, added six languages to the available options: German, Spanish, French, Italian, Japanese, Mandarin Chinese
+- Fully wired the card to HAX
+- Responsive resizing based on a proportionate scale transformation, including five different sizes
+
+#### What's still left/when we plan to accomplish it by:
+To be done by the mid-week:
+- Create four fully documented variations of our Post Card (one per groupmate)
+- Adjust the slots in the To and From sections of the card to further improve progressive enhancement
+
+To be done prior to the weekend:
+- Fix grid layout to ensure card better resembles spec
+  - If this does not work the way we want it to, our plan is to create positioning using percentages 
+- Once the layout is better set, font sizes will be updated to ensure consistency with the spec
+
+To be done prior to the due date: 
+- Remove div lines used for scaffolding, eliminate any unneccessary code 
