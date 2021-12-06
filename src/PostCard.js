@@ -216,10 +216,10 @@ export class PostCard extends LitElement {
   Will need to use Z index for layering 
   */
   render() {
-    console.log(navigator.language); // Leave this in for now, using to test something with I18N
+    // console.log(navigator.language); // Leave this in for now, using to test something with I18N
 
     return html`
-      <div class="entireCard">
+      <div class="entireCard" tabindex="0">
         <div class="backgroundLines">
           <h2 class="label">${this.t.label}</h2>
           <img src="assets/postcard-lines.png" alt="" />
