@@ -244,12 +244,12 @@ export class PostCard extends LitElement {
           </div>
           <div class="tofrom">
             <h3>${this.t.send}</h3>
-            <p>${this.to}</p>
+            <slot name="to">${this.to}</slot>
             <h3>${this.t.receive}</h3>
-            <p>${this.from}</p>
+            <slot name="from">${this.from}</slot>
           </div>
           <div class="message">
-            <p>${this.message}</p>
+            <slot name="message">${this.message}</slot>
           </div>
         </div>
       </div>
