@@ -211,6 +211,7 @@ What insights you gained from the class activity to implement:
 - Compeleted I18N setup, added six languages to the available options: German, Spanish, French, Italian, Japanese, Mandarin Chinese
 - Fully wired the card to HAX
 - Responsive resizing based on a proportionate scale transformation, including five different sizes
+- Added z-index to CSS to allow for easier overlay of components over the background image's lines
 
 #### What's still left/when we plan to accomplish it by:
 To be done by the mid-week:
@@ -221,6 +222,7 @@ To be done prior to the weekend:
 - Fix grid layout to ensure card better resembles spec
   - If this does not work the way we want it to, our plan is to create positioning using percentages 
 - Once the layout is better set, font sizes will be updated to ensure consistency with the spec
+- Edit the CSS for the To and From labels and their slots so they align with the lines in the background image
 
 To be done prior to the due date: 
 - Remove div lines used for scaffolding, eliminate any unneccessary code 
