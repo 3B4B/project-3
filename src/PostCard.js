@@ -227,20 +227,25 @@ export class PostCard extends LitElement {
           <h2 class="label">${this.t.label}</h2>
           <img src="assets/postcard-lines.png" alt="" />
         </div>
-        <div class="image">
-          <post-card-photo></post-card-photo>
-        </div>
-        <div class="stamp">
-          <post-card-stamp></post-card-stamp>
-        </div>
-        <div class="tofrom">
-          <h3>${this.t.send}</h3>
-          <p>${this.to}</p>
-          <h3>${this.t.receive}</h3>
-          <p>${this.from}</p>
-        </div>
-        <div class="message">
-          <p>${this.message}</p>
+        <div class="foregroundElements">
+          <div class="postage">
+            <post-card-postmark></post-card-postmark>
+          </div>
+          <div class="image">
+            <post-card-photo></post-card-photo>
+          </div>
+          <div class="stamp">
+            <post-card-stamp></post-card-stamp>
+          </div>
+          <div class="tofrom">
+            <h3>${this.t.send}</h3>
+            <slot name="to"></slot>
+            <h3>${this.t.receive}</h3>
+            <slot name="from"></slot>
+          </div>
+          <div class="message">
+            <slot name="message"></slot>
+          </div>
         </div>
       </div>
     `;
