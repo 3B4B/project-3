@@ -229,7 +229,7 @@ export class PostCard extends LitElement {
       <div class="entireCard" tabindex="0">
         <div class="backgroundLines">
           <h2 class="label">${this.t.label}</h2>
-          <img src="assets/postcard-lines.png" alt="" />
+          <img alt="" src="assets/postcard-lines.png" />
         </div>
         <div class="foregroundElements">
           <div class="postage">

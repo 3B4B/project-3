@@ -8,10 +8,7 @@ export class PostCardPhoto extends SimpleColors {
   constructor() {
     super();
     this.accentColor = 'grey';
-    this.image = new URL(
-      '../assets/postcard-photo-stock.jpg',
-      import.meta.url
-    ).href;
+    this.image = new URL(this.image, import.meta.url).href;
     this.alt = '';
   }
 

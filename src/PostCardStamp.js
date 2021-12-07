@@ -6,10 +6,7 @@ export class PostCardStamp extends SimpleColors {
   constructor() {
     super();
     this.accentColor = 'grey';
-    this.image = new URL(
-      '../assets/postcard-stamp-stock.jpg',
-      import.meta.url
-    ).href;
+    this.image = new URL(this.image, import.meta.url).href;
     this.alt = 'Stamp';
   }
 

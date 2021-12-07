@@ -2,7 +2,6 @@
     "canScale": true,
     "canPosition": true,
     "canEditSource": true,
-    "contentEditable": true,
     "gizmo": {
       "title": "Post Card",
       "description": "An element to improve the future of education",
@@ -31,8 +30,14 @@
           "inputMethod": "textfield"
         },
         {
-          "property": "src",
-          "title": "Source",
+          "property": "photoSrc",
+          "title": "Main Photo Source",
+          "description": "Where is your photo located?",
+          "inputMethod": "fileupload"
+        },
+        {
+          "property": "stampSrc",
+          "title": "Stamp Photo Source",
           "description": "Where is your photo located?",
           "inputMethod": "fileupload"
         }
@@ -48,8 +53,8 @@
             "to": "the future",
             "from": "the past",
             "message": "How I met your mother",
-            "src": "http://media.liveauctiongroup.net/i/11189/11535427_1.jpg?v=8CE770C8F1EEC60"
-
+            "photoSrc": "http://media.liveauctiongroup.net/i/11189/11535427_1.jpg?v=8CE770C8F1EEC60",
+            "stampSrc": "https://gisuser.com/wp-content/uploads/2018/08/2000px-Amazon_Web_Services_Logo.svg_.png"
         }
 
       }
