@@ -1,16 +1,12 @@
 // dependencies / things imported
 import { LitElement, html, css } from 'lit';
+// CREATIVE COMMONS CREDIT: All graphics and visuals gathered from: https://remixer.visualthinkery.com/a/OEG-postcard
 
-// EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
-// which has the magic life-cycles and developer experience below added
-//
 export class PostCard extends LitElement {
-  // a convention I enjoy so you can change the tag name in 1 place
   static get tag() {
     return 'post-card';
   }
 
-  // HTMLElement life-cycle, built in; use this for setting defaults
   constructor() {
     super();
     this.t = {
@@ -80,6 +76,7 @@ export class PostCard extends LitElement {
         font-family: 'Patrick Hand', cursive;
       }
 
+      /* Used for scaffolding, remove later */
       div {
         border: 2px dotted purple;
       }
@@ -224,10 +221,10 @@ export class PostCard extends LitElement {
   Will need to use Z index for layering 
   */
   render() {
-    console.log(navigator.language); // Leave this in for now, using to test something with I18N
+    // console.log(navigator.language); // Leave this in for now, using to test something with I18N
 
     return html`
-      <div class="entireCard">
+      <div class="entireCard" tabindex="0">
         <div class="backgroundLines">
           <h2 class="label">${this.t.label}</h2>
           <img src="assets/postcard-lines.png" alt="" />
@@ -238,6 +235,7 @@ export class PostCard extends LitElement {
           </div>
           <div class="image">
             <post-card-photo image="${this.src}"></post-card-photo>
+
           </div>
           <div class="stamp">
             <post-card-stamp></post-card-stamp>
