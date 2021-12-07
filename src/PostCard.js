@@ -47,7 +47,11 @@ export class PostCard extends LitElement {
       message: { type: String, reflect: true },
       photoSrc: { type: String, reflect: true },
       stampSrc: { type: String, reflect: true },
-      postMarkLocations: { type: String, reflect: true },
+      postMarkLocations: {
+        type: String,
+        reflect: true,
+        attribute: 'post-mark-locations',
+      },
     };
   }
 

@@ -30,6 +30,12 @@
           "inputMethod": "textfield"
         },
         {
+          "property": "post-mark-locations",
+          "title": "Postmarked From",
+          "description": "Where did this card get sent from?",
+          "inputMethod": "textfield"
+        },
+        {
           "property": "photoSrc",
           "title": "Main Photo Source",
           "description": "Where is your photo located?",
