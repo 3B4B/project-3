@@ -11,7 +11,7 @@ export class PostCardPostmark extends SimpleColors {
       import.meta.url
     ).href;
     this.alt = 'Post Mark';
-    this.locations = 'insert-locations-here';
+    this.locations = 'insert - locations - here';
   }
 
   static get tag() {
@@ -53,7 +53,8 @@ export class PostCardPostmark extends SimpleColors {
           text-align: center;
           color: var(--simple-colors-default-theme-accent-6);
           margin: 0px;
-          font-size: 14px;
+          font-size: 16px;
+          letter-spacing: 2px;
         }
       `,
     ];

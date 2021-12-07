@@ -16,6 +16,7 @@ export class PostCard extends LitElement {
     };
     this.photoSrc = '../assets/postcard-photo-stock.jpg';
     this.stampSrc = '../assets/postcard-stamp-stock.jpg';
+    this.postMarkLocations = 'insert - locations - here';
 
     window.dispatchEvent(
       new CustomEvent('i18n-manager-register-element', {
@@ -46,6 +47,7 @@ export class PostCard extends LitElement {
       message: { type: String, reflect: true },
       photoSrc: { type: String, reflect: true },
       stampSrc: { type: String, reflect: true },
+      postMarkLocations: { type: String, reflect: true },
     };
   }
 
@@ -126,6 +128,7 @@ export class PostCard extends LitElement {
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 3;
       }
 
       .image {
@@ -233,7 +236,9 @@ export class PostCard extends LitElement {
         </div>
         <div class="foregroundElements">
           <div class="postage">
-            <post-card-postmark></post-card-postmark>
+            <post-card-postmark
+              locations="${this.postMarkLocations}"
+            ></post-card-postmark>
           </div>
           <div class="image">
             <post-card-photo image="${this.photoSrc}"></post-card-photo>
