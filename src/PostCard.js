@@ -136,7 +136,7 @@ export class PostCard extends LitElement {
 
       .stamp {
         grid-column: 5;
-        grid-row: 1 / auto;
+        grid-row: 1 / 2;
       }
 
       .tofrom {
