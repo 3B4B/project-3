@@ -56,7 +56,7 @@ export class PostCard extends LitElement {
         width: var(--width-body);
         margin: 20px;
         display: inline-grid;
-        grid-template-rows: 1fr 2fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         transition: all 0.35s ease-in-out;
       }
@@ -119,11 +119,12 @@ export class PostCard extends LitElement {
 
       .postage {
         grid-column: 4;
-        grid-row: 1 / auto;
+        grid-row: 1 / 2;
         font-family: 'Bebas Neue', sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
+        padding-top: 25px;
       }
 
       .image {
@@ -134,12 +135,12 @@ export class PostCard extends LitElement {
 
       .stamp {
         grid-column: 5;
-        grid-row: 1 / auto;
+        grid-row: 1 / 3;
       }
 
       .tofrom {
         grid-column: 4 / 6;
-        grid-row: 2 / 5;
+        grid-row: 3 / 5;
         font-size: 22px;
       }
 
@@ -164,6 +165,7 @@ export class PostCard extends LitElement {
       .message {
         grid-column: 1 / 3;
         grid-row: 4;
+        margin-right: 60px;
       }
 
       /* @media screen and (min-width: 300px) and (max-width: 650px) {
@@ -235,7 +237,6 @@ export class PostCard extends LitElement {
           </div>
           <div class="image">
             <post-card-photo image="${this.src}"></post-card-photo>
-
           </div>
           <div class="stamp">
             <post-card-stamp></post-card-stamp>
