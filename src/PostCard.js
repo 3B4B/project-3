@@ -14,6 +14,7 @@ export class PostCard extends LitElement {
       send: 'To',
       receive: 'From',
     };
+    this.src = '../assets/postcard-photo-stock.jpg';
 
     window.dispatchEvent(
       new CustomEvent('i18n-manager-register-element', {
@@ -42,6 +43,7 @@ export class PostCard extends LitElement {
       to: { type: String, reflect: true },
       from: { type: String, reflect: true },
       message: { type: String, reflect: true },
+      src: { type: String, reflect: true },
     };
   }
 
@@ -232,19 +234,20 @@ export class PostCard extends LitElement {
             <post-card-postmark></post-card-postmark>
           </div>
           <div class="image">
-            <post-card-photo></post-card-photo>
+            <post-card-photo image="${this.src}"></post-card-photo>
+
           </div>
           <div class="stamp">
             <post-card-stamp></post-card-stamp>
           </div>
           <div class="tofrom">
             <h3>${this.t.send}</h3>
-            <slot name="to"></slot>
+            <slot name="to">${this.to}</slot>
             <h3>${this.t.receive}</h3>
-            <slot name="from"></slot>
+            <slot name="from">${this.from}</slot>
           </div>
           <div class="message">
-            <slot name="message"></slot>
+            <slot name="message">${this.message}</slot>
           </div>
         </div>
       </div>
