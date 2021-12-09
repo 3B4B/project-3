@@ -133,7 +133,7 @@ export class PostCard extends LitElement {
         font-family: 'Bebas Neue', sans-serif;
         display: grid;
         display: inline-grid;
-        grid-template-columns: 350px 1fr;
+        grid-template-columns: 330px 1fr;
         grid-template-rows: 150px 1fr;
 
         /* border: 5px dotted green; */
@@ -142,11 +142,9 @@ export class PostCard extends LitElement {
       .stamp {
         z-index: 3;
         grid-area: 1 / 1 / 1 / 1;
-        margin-left: 190px;
+        margin-left: 195px;
         margin-bottom: 20px;
         padding-top: 20px;
-
-        /* border: 5px dotted red; */
       }
 
       .postmark {
@@ -161,7 +159,7 @@ export class PostCard extends LitElement {
         grid-column: 1 / 3;
         grid-row: 1 / 4;
         border-radius: 1px;
-        padding-top: 70px;
+        padding-top: 80px;
       }
       .tofrom {
         grid-column: 4 / 6;
@@ -174,10 +172,18 @@ export class PostCard extends LitElement {
         margin-right: 20%;
         margin-bottom: 1px;
         border-radius: 1px 3px 1px 2px;
+        opacity: 0.8;
       }
 
       .to {
         padding-bottom: 120px;
+      }
+
+      .to ::slotted(*) {
+        font-size: 40px;
+        font-weight: bolder;
+        letter-spacing: 2px;
+        line-height: 1.25;
       }
 
       .from {
