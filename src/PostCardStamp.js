@@ -34,14 +34,12 @@ export class PostCardStamp extends SimpleColors {
           display: inline-grid;
           grid-template-columns: 1;
           grid-template-rows: 1;
-          padding-top: 10%;
         }
         img {
           grid-column: 1;
           grid-row: 1;
           justify-content: center;
         }
-
         .stampImage {
           width: var(--img-width);
           height: calc(var(--img-width) * 1.25);
@@ -50,7 +48,6 @@ export class PostCardStamp extends SimpleColors {
           transform: rotate(1.5deg);
           z-index: 3;
         }
-
         .stampBackground {
           width: calc(var(--img-width) + 20px);
           height: calc(var(--img-width) * 1.25 + 20px);
