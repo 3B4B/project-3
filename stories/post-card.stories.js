@@ -6,17 +6,39 @@ export default {
   title: 'Post Card',
   component: 'post-card',
   argTypes: {
-    need: { control: 'text' },
+    location: { control: 'text' },
+    photoSrc: { control: 'file' },
+    stampSrc: { control: 'file' },
+    to: { control: 'text' },
+    from: { control: 'text' },
+    message: { control: 'text' },
   },
 };
 
-function Template({ need = 'rename', slot }) {
-  return html` <post-card need="${need}"> ${slot} </post-card> `;
+function PostCardTemplate({
+  location,
+  photoSrc,
+  stampSrc,
+  to,
+  from,
+  message,
+  slot,
+}) {
+  return html`<post-card
+    post-mark-locations="${location}"
+    photoSrc="${photoSrc}"
+    stampSrc="${stampSrc}"
+    to="${to}"
+    from="${from}"
+    message="${message}"
+  >
+    ${slot}
+  </post-card>`;
 }
-export const Card = Template.bind({});
+export const Card = PostCardTemplate.bind({});
 
-export const ScienceCard = Template.bind({});
-ScienceCard.args = {
-  need: 'science',
-  slot: html`<p>slotted content that should render</p>`,
-};
+export const ScienceCard = PostCardTemplate.bind({});
+// ScienceCard.args = {
+//   need: 'science',
+//   slot: html`<p>slotted content that should render</p>`,
+// };
