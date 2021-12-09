@@ -160,12 +160,12 @@ export class PostCard extends LitElement {
       .tofrom ::slotted(*) {
         margin-left: 20%;
         margin-right: 20%;
-        margin-bottom: 10px;
+        margin-bottom: 1px;
         border-radius: 1px 3px 1px 2px;
       }
 
       .to {
-        padding-bottom: 118px;
+        padding-bottom: 120px;
       }
 
       .from {
@@ -190,7 +190,7 @@ export class PostCard extends LitElement {
         align-items: center;
         padding-bottom: 20px;
         padding-top: 150px;
-        font-size: 2vw;
+        font-size: 18px;
       }
 
       /* @media screen and (min-width: 300px) and (max-width: 650px) {
