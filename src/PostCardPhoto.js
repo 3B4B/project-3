@@ -29,7 +29,7 @@ export class PostCardPhoto extends SimpleColors {
       ...super.styles,
       css`
         :host {
-          --img-width: 325px;
+          --img-width: 340px;
         }
 
         div {
@@ -47,7 +47,7 @@ export class PostCardPhoto extends SimpleColors {
 
         .cardShadow {
           width: calc(var(--img-width) * 1.05);
-          height: calc(var(--img-width) * 0.78);
+          height: calc(var(--img-width) * 0.68);
           z-index: 2;
           opacity: 0.5;
           transform: translate(1%, 1.5%) rotate(0.5deg);
@@ -55,7 +55,7 @@ export class PostCardPhoto extends SimpleColors {
 
         .cardImage {
           width: var(--img-width);
-          height: calc(var(--img-width) * 0.7);
+          height: calc(var(--img-width) * 0.6);
           z-index: 2;
           transform: rotate(-3deg);
           border-radius: 5px 5px 0px 5px;
