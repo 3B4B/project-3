@@ -65,7 +65,7 @@ export class PostCard extends LitElement {
         margin: 20px;
         display: inline-grid;
         grid-template-rows: 1fr 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         transition: all 0.35s ease-in-out;
       }
 
@@ -84,10 +84,11 @@ export class PostCard extends LitElement {
         font-family: 'Patrick Hand', cursive;
       }
 
-      /* Used for scaffolding, remove later */
+      /* Used for scaffolding, remove later 
       div {
         border: 2px dotted purple;
       }
+      */
 
       .backgroundLines {
         display: block;
@@ -126,25 +127,28 @@ export class PostCard extends LitElement {
       }
 
       .postage {
-        grid-column: 4;
+        grid-column: 4 / 5;
         grid-row: 1 / 2;
         font-family: 'Bebas Neue', sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 3;
-        padding-top: 25px;
+        z-index: 4;
+        padding-bottom: 12px;
       }
 
       .image {
         grid-column: 1 / 3;
-        grid-row: 2 / 4;
+        grid-row: 1 / 4;
         border-radius: 1px;
+        padding-top: 70px;
       }
 
       .stamp {
-        grid-column: 5;
+        grid-column: 5 / 6;
         grid-row: 1 / 2;
+        padding-right: 5px;
+        z-index: 2;
       }
 
       .tofrom {
@@ -156,8 +160,15 @@ export class PostCard extends LitElement {
       .tofrom ::slotted(*) {
         margin-left: 20%;
         margin-right: 20%;
-        margin-bottom: 10px;
+        margin-bottom: 1px;
         border-radius: 1px 3px 1px 2px;
+      }
+
+      .to {
+        padding-bottom: 120px;
+      }
+
+      .from {
       }
 
       h2,
@@ -169,12 +180,17 @@ export class PostCard extends LitElement {
         text-align: left;
         transform: rotate(-1deg);
         color: #ca8686;
+        padding-left: 20px;
       }
 
       .message {
         grid-column: 1 / 3;
-        grid-row: 4;
-        margin-right: 60px;
+        grid-row: 3 / 5;
+        padding-right: 30px;
+        align-items: center;
+        padding-bottom: 20px;
+        padding-top: 150px;
+        font-size: 18px;
       }
 
       /* @media screen and (min-width: 300px) and (max-width: 650px) {
@@ -253,10 +269,14 @@ export class PostCard extends LitElement {
             <post-card-stamp image="${this.stampSrc}"></post-card-stamp>
           </div>
           <div class="tofrom">
-            <h3>${this.t.send}</h3>
-            <slot name="to">${this.to}</slot>
-            <h3>${this.t.receive}</h3>
-            <slot name="from">${this.from}</slot>
+            <div class="to">
+              <h3>${this.t.send}</h3>
+              <slot name="to">${this.to}</slot>
+            </div>
+            <div class="from">
+              <h3>${this.t.receive}</h3>
+              <slot name="from">${this.from}</slot>
+            </div>
           </div>
           <div class="message">
             <slot name="message">${this.message}</slot>
