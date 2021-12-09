@@ -79,7 +79,7 @@ export class PostCard extends LitElement {
         text-align: center;
         display: inline-grid;
         grid-template-rows: 1fr 2fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         text-transform: uppercase;
         font-family: 'Patrick Hand', cursive;
       }
@@ -126,15 +126,35 @@ export class PostCard extends LitElement {
         height: calc(var(--width-body) * (2 / 3));
       }
 
+      /* Inlcudes both the post mark and the stamp */
       .postage {
         grid-column: 4 / 5;
         grid-row: 1 / 2;
         font-family: 'Bebas Neue', sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 4;
-        padding-bottom: 12px;
+        display: grid;
+        display: inline-grid;
+        grid-template-columns: 350px 1fr;
+        grid-template-rows: 150px 1fr;
+
+        /* border: 5px dotted green; */
+      }
+
+      .stamp {
+        z-index: 3;
+        grid-area: 1 / 1 / 1 / 1;
+        margin-left: 190px;
+        margin-bottom: 20px;
+        padding-top: 20px;
+
+        /* border: 5px dotted red; */
+      }
+
+      .postmark {
+        z-index: 5;
+        grid-area: 1 / 1 / 1 / 1;
+        padding-top: 35px;
+
+        /* border: 5px dotted purple;  */
       }
 
       .image {
@@ -143,14 +163,6 @@ export class PostCard extends LitElement {
         border-radius: 1px;
         padding-top: 100px;
       }
-
-      .stamp {
-        grid-column: 5 / 6;
-        grid-row: 1 / 2;
-        padding-right: 5px;
-        z-index: 2;
-      }
-
       .tofrom {
         grid-column: 4 / 6;
         grid-row: 2 / 5;
@@ -263,14 +275,16 @@ export class PostCard extends LitElement {
         <div class="foregroundElements">
           <div class="postage">
             <post-card-postmark
+              class="postmark"
               locations="${this.postMarkLocations}"
             ></post-card-postmark>
+            <post-card-stamp
+              class="stamp"
+              image="${this.stampSrc}"
+            ></post-card-stamp>
           </div>
           <div class="image">
             <post-card-photo image="${this.photoSrc}"></post-card-photo>
-          </div>
-          <div class="stamp">
-            <post-card-stamp image="${this.stampSrc}"></post-card-stamp>
           </div>
           <div class="tofrom">
             <div class="to">
