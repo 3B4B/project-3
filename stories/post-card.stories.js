@@ -12,6 +12,7 @@ export default {
     to: { control: 'text' },
     from: { control: 'text' },
     message: { control: 'text' },
+    slot: { control: 'text' },
   },
 };
 
@@ -35,10 +36,10 @@ function PostCardTemplate({
     ${slot}
   </post-card>`;
 }
-export const Card = PostCardTemplate.bind({});
-
-export const ScienceCard = PostCardTemplate.bind({});
-// ScienceCard.args = {
-//   need: 'science',
-//   slot: html`<p>slotted content that should render</p>`,
-// };
+export const BlankCard = PostCardTemplate.bind({});
+export const ExampleCard = PostCardTemplate.bind({});
+ExampleCard.args = {
+  photoSrc: 'https://images.onwardstate.com/uploads/2019/10/IMG_9180.jpg',
+  stampSrc:
+    'https://www.bestcleaners.com/wp-content/uploads/2017/06/AmericanFlag.jpg',
+};
