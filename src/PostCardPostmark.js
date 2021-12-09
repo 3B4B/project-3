@@ -42,6 +42,7 @@ export class PostCardPostmark extends SimpleColors {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          opacity: 0.8;
         }
         img {
           width: var(--img-width);
