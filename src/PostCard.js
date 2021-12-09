@@ -141,7 +141,7 @@ export class PostCard extends LitElement {
         grid-column: 1 / 3;
         grid-row: 1 / 4;
         border-radius: 1px;
-        padding-top: 70px;
+        padding-top: 100px;
       }
 
       .stamp {
@@ -162,10 +162,14 @@ export class PostCard extends LitElement {
         margin-right: 20%;
         margin-bottom: 1px;
         border-radius: 1px 3px 1px 2px;
+        font-size: 36px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        line-height: 1.25;
       }
 
       .to {
-        padding-bottom: 120px;
+        height: 140px;
       }
 
       .from {
