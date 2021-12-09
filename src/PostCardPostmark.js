@@ -36,6 +36,7 @@ export class PostCardPostmark extends SimpleColors {
           font-family: 'Bebas Neue', sans-serif;
         }
         div {
+          width: var(--img-width);
           border: 1px dashed black;
           display: flex;
           flex-direction: column;
@@ -49,12 +50,15 @@ export class PostCardPostmark extends SimpleColors {
             brightness(98%) contrast(95%); /* created using: https://codepen.io/sosuke/pen/Pjoqqp */
         }
         p {
+          width: var(--img-width);
           text-transform: uppercase;
           text-align: center;
           color: var(--simple-colors-default-theme-accent-6);
           margin: 0px;
           font-size: 16px;
           letter-spacing: 2px;
+          text-align: center;
+          overflow: hidden;
         }
       `,
     ];
