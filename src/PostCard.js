@@ -159,12 +159,12 @@ export class PostCard extends LitElement {
         grid-column: 1 / 3;
         grid-row: 1 / 4;
         border-radius: 1px;
-        padding-top: 80px;
+        padding-top: 70px;
       }
       .tofrom {
         grid-column: 4 / 6;
         grid-row: 2 / 5;
-        font-size: 22px;
+        font-size: 20px;
       }
 
       .tofrom ::slotted(*),
@@ -199,9 +199,10 @@ export class PostCard extends LitElement {
       .from ::slotted(*),
       .from .fromContent {
         height: 70px;
+        font-size: 22px;
         font-weight: bolder;
         letter-spacing: 1px;
-        line-height: 1.25;
+        line-height: 1;
         margin-top: 8px;
         overflow: hidden;
         display: flex;
@@ -223,12 +224,26 @@ export class PostCard extends LitElement {
 
       .message {
         grid-column: 1 / 3;
-        grid-row: 3 / 5;
-        padding-right: 30px;
-        align-items: center;
+        grid-row: 2 / 5;
+        padding-right: 20px;
         padding-bottom: 20px;
-        padding-top: 150px;
-        font-size: 18px;
+        padding-top: 200px;
+        font-size: 22px;
+        margin: auto;
+      }
+
+      .message ::slotted(*),
+      .message .messageContent {
+        width: 270px;
+        height: 100px;
+        font-weight: bolder;
+        text-align: center;
+        line-height: 1.1;
+        overflow: hidden;
+        align-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       /* Query sizes sourced from: https://www.geeksforgeeks.org/how-to-target-desktop-tablet-and-mobile-using-media-query/ */
@@ -305,7 +320,9 @@ export class PostCard extends LitElement {
             </div>
           </div>
           <div class="message">
-            <slot name="message">${this.message}</slot>
+            <slot name="message"
+              ><div class="messageContent">${this.message}</div></slot
+            >
           </div>
         </div>
       </div>
