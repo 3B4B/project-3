@@ -188,7 +188,7 @@ export class PostCard extends LitElement {
         font-weight: bolder;
         letter-spacing: 2px;
         line-height: 1.25;
-        margin-top: 8px;
+        margin-top: 12px;
         overflow: hidden;
       }
 
