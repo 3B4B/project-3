@@ -133,7 +133,7 @@ export class PostCard extends LitElement {
         font-family: 'Bebas Neue', sans-serif;
         display: grid;
         display: inline-grid;
-        grid-template-columns: 350px 1fr;
+        grid-template-columns: 330px 1fr;
         grid-template-rows: 150px 1fr;
 
         /* border: 5px dotted green; */
@@ -142,11 +142,9 @@ export class PostCard extends LitElement {
       .stamp {
         z-index: 3;
         grid-area: 1 / 1 / 1 / 1;
-        margin-left: 190px;
+        margin-left: 195px;
         margin-bottom: 20px;
         padding-top: 20px;
-
-        /* border: 5px dotted red; */
       }
 
       .postmark {
@@ -161,30 +159,56 @@ export class PostCard extends LitElement {
         grid-column: 1 / 3;
         grid-row: 1 / 4;
         border-radius: 1px;
-        padding-top: 100px;
+        padding-top: 70px;
       }
+
       .tofrom {
         grid-column: 4 / 6;
         grid-row: 2 / 5;
-        font-size: 22px;
+        font-size: 20px;
       }
 
-      .tofrom ::slotted(*) {
-        margin-left: 20%;
-        margin-right: 20%;
-        margin-bottom: 1px;
-        border-radius: 1px 3px 1px 2px;
-        font-size: 36px;
-        font-weight: bold;
-        letter-spacing: 2px;
-        line-height: 1.25;
+      .tofrom ::slotted(*),
+      .tofrom .toContent,
+      .tofrom .fromContent {
+        width: 270px;
+        margin: auto;
+        opacity: 0.8;
+        text-align: center;
       }
 
       .to {
-        height: 140px;
+        height: 150px;
+        margin-bottom: 20px;
+      }
+
+      .to ::slotted(*),
+      .to .toContent {
+        height: 100px;
+        font-size: 40px;
+        font-weight: bolder;
+        letter-spacing: 2px;
+        line-height: 1.25;
+        margin-top: 12px;
+        overflow: hidden;
       }
 
       .from {
+        height: 140px;
+      }
+
+      .from ::slotted(*),
+      .from .fromContent {
+        height: 70px;
+        font-size: 22px;
+        font-weight: bolder;
+        letter-spacing: 1px;
+        line-height: 1;
+        margin-top: 8px;
+        overflow: hidden;
+        display: flex;
+        place-content: flex-end center;
+        align-items: flex-end;
       }
 
       h2,
@@ -201,26 +225,27 @@ export class PostCard extends LitElement {
 
       .message {
         grid-column: 1 / 3;
-        grid-row: 3 / 5;
-        padding-right: 30px;
-        align-items: center;
+        grid-row: 2 / 5;
+        padding-right: 20px;
         padding-bottom: 20px;
-        padding-top: 150px;
-        font-size: 18px;
+        padding-top: 200px;
+        font-size: 22px;
+        margin: auto;
       }
 
-      /* @media screen and (min-width: 300px) and (max-width: 650px) {
-        :host {
-          transform: scale(.3);
-          transition: all 0.35s ease-in-out;
-        }
+      .message ::slotted(*),
+      .message .messageContent {
+        width: 270px;
+        height: 100px;
+        font-weight: bolder;
+        text-align: center;
+        line-height: 1.1;
+        overflow: hidden;
+        align-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-      @media screen and (min-width: 650px) and (max-width: 1000px) {
-        :host {
-          transform: scale(.8);
-          transition: all 0.35s ease-in-out;
-        }
-      } */
 
       /* Query sizes sourced from: https://www.geeksforgeeks.org/how-to-target-desktop-tablet-and-mobile-using-media-query/ */
       @media (max-width: 370px) {
@@ -260,9 +285,6 @@ export class PostCard extends LitElement {
     `;
   }
 
-  /*
-  Will need to use Z index for layering 
-  */
   render() {
     // console.log(navigator.language); // Leave this in for now, using to test something with I18N
 
@@ -289,15 +311,19 @@ export class PostCard extends LitElement {
           <div class="tofrom">
             <div class="to">
               <h3>${this.t.send}</h3>
-              <slot name="to">${this.to}</slot>
+              <slot name="to"><div class="toContent">${this.to}</div></slot>
             </div>
             <div class="from">
-              <h3>${this.t.receive}</h3>
-              <slot name="from">${this.from}</slot>
+              <h3>${this.t.receive}:</h3>
+              <slot name="from"
+                ><div class="fromContent">${this.from}</div></slot
+              >
             </div>
           </div>
           <div class="message">
-            <slot name="message">${this.message}</slot>
+            <slot name="message"
+              ><div class="messageContent">${this.message}</div></slot
+            >
           </div>
         </div>
       </div>
