@@ -167,26 +167,46 @@ export class PostCard extends LitElement {
         font-size: 22px;
       }
 
-      .tofrom ::slotted(*) {
-        margin-left: 20%;
-        margin-right: 20%;
-        margin-bottom: 1px;
-        border-radius: 1px 3px 1px 2px;
+      .tofrom ::slotted(*),
+      .tofrom .toContent,
+      .tofrom .fromContent {
+        width: 270px;
+        margin: auto;
         opacity: 0.8;
+        text-align: center;
       }
 
       .to {
-        padding-bottom: 120px;
+        height: 150px;
+        margin-bottom: 20px;
       }
 
-      .to ::slotted(*) {
+      .to ::slotted(*),
+      .to .toContent {
+        height: 100px;
         font-size: 40px;
         font-weight: bolder;
         letter-spacing: 2px;
         line-height: 1.25;
+        margin-top: 8px;
+        overflow: hidden;
       }
 
       .from {
+        height: 140px;
+      }
+
+      .from ::slotted(*),
+      .from .fromContent {
+        height: 70px;
+        font-weight: bolder;
+        letter-spacing: 1px;
+        line-height: 1.25;
+        margin-top: 8px;
+        overflow: hidden;
+        display: flex;
+        place-content: flex-end center;
+        align-items: flex-end;
       }
 
       h2,
@@ -210,19 +230,6 @@ export class PostCard extends LitElement {
         padding-top: 150px;
         font-size: 18px;
       }
-
-      /* @media screen and (min-width: 300px) and (max-width: 650px) {
-        :host {
-          transform: scale(.3);
-          transition: all 0.35s ease-in-out;
-        }
-      }
-      @media screen and (min-width: 650px) and (max-width: 1000px) {
-        :host {
-          transform: scale(.8);
-          transition: all 0.35s ease-in-out;
-        }
-      } */
 
       /* Query sizes sourced from: https://www.geeksforgeeks.org/how-to-target-desktop-tablet-and-mobile-using-media-query/ */
       @media (max-width: 370px) {
@@ -262,9 +269,6 @@ export class PostCard extends LitElement {
     `;
   }
 
-  /*
-  Will need to use Z index for layering 
-  */
   render() {
     // console.log(navigator.language); // Leave this in for now, using to test something with I18N
 
@@ -291,11 +295,13 @@ export class PostCard extends LitElement {
           <div class="tofrom">
             <div class="to">
               <h3>${this.t.send}</h3>
-              <slot name="to">${this.to}</slot>
+              <slot name="to"><div class="toContent">${this.to}</div></slot>
             </div>
             <div class="from">
-              <h3>${this.t.receive}</h3>
-              <slot name="from">${this.from}</slot>
+              <h3>${this.t.receive}:</h3>
+              <slot name="from"
+                ><div class="fromContent">${this.from}</div></slot
+              >
             </div>
           </div>
           <div class="message">
