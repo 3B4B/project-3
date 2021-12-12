@@ -42,4 +42,8 @@ ExampleCard.args = {
   photoSrc: 'https://images.onwardstate.com/uploads/2019/10/IMG_9180.jpg',
   stampSrc:
     'https://www.bestcleaners.com/wp-content/uploads/2017/06/AmericanFlag.jpg',
+  to: 'Billy',
+  from: 'Mandy',
+  location: 'Philly',
+  message: 'Have you seen Grim recently?',
 };
