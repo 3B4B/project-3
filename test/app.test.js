@@ -3,6 +3,8 @@ import { fixture, expect } from '@open-wc/testing';
 
 import '../src/PostCard.js';
 import '../src/PostCardPostmark.js';
+import '../src/PostCardPhoto.js';
+import '../src/PostCardStamp.js';
 
 describe('PostCard', () => {
   let element;
@@ -16,6 +18,13 @@ describe('PostCard', () => {
         message="To make a baby...."
       ></post-card>`
     );
+  });
+
+  it('renders a post-card', () => {
+    const pc = element.shadowRoot.querySelector('post-card');
+    console.log(`Element is: ${pc}`);
+    expect(pc).to.exist;
+    // expect(p.textContent).to.equal('Egypt');
   });
 
   it('renders a post-card-photo', () => {
