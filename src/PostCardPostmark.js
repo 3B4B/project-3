@@ -32,7 +32,7 @@ export class PostCardPostmark extends SimpleColors {
       ...super.styles,
       css`
         :host {
-          --img-width: 210px;
+          --img-width: 250px;
           font-family: 'Bebas Neue', sans-serif;
         }
         div {

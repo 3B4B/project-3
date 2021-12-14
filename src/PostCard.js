@@ -1,6 +1,5 @@
-// dependencies / things imported
+// CREATIVE COMMONS CREDIT: All graphics and visuals gathered from: https://remixer.visualthinkery.com/a/OEG-postcard based on: https://creativecommons.org/licenses/by-sa/4.0/?ref=fahim.pages.dev
 import { LitElement, html, css } from 'lit';
-// CREATIVE COMMONS CREDIT: All graphics and visuals gathered from: https://remixer.visualthinkery.com/a/OEG-postcard
 
 export class PostCard extends LitElement {
   static get tag() {
@@ -79,16 +78,10 @@ export class PostCard extends LitElement {
         text-align: center;
         display: inline-grid;
         grid-template-rows: 1fr 2fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         text-transform: uppercase;
         font-family: 'Patrick Hand', cursive;
       }
-
-      /* Used for scaffolding, remove later 
-      div {
-        border: 2px dotted purple;
-      }
-      */
 
       .backgroundLines {
         display: block;
@@ -97,10 +90,6 @@ export class PostCard extends LitElement {
         border: none;
         width: var(--width-body);
         height: calc(var(--width-body) * (2 / 3));
-
-        /*Below selectors are only used to circumvent dotted lines, remove later */
-        padding: 0px;
-        border: none;
       }
 
       .label {
@@ -126,15 +115,29 @@ export class PostCard extends LitElement {
         height: calc(var(--width-body) * (2 / 3));
       }
 
+      /* Inlcudes both the post mark and the stamp */
       .postage {
         grid-column: 4 / 5;
         grid-row: 1 / 2;
         font-family: 'Bebas Neue', sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 4;
-        padding-bottom: 12px;
+        display: grid;
+        display: inline-grid;
+        grid-template-columns: 330px 1fr;
+        grid-template-rows: 150px 1fr;
+      }
+
+      .stamp {
+        z-index: 3;
+        grid-area: 1 / 1 / 1 / 1;
+        margin-left: 195px;
+        margin-bottom: 20px;
+        padding-top: 20px;
+      }
+
+      .postmark {
+        z-index: 5;
+        grid-area: 1 / 1 / 1 / 1;
+        padding-top: 35px;
       }
 
       .image {
@@ -144,31 +147,53 @@ export class PostCard extends LitElement {
         padding-top: 70px;
       }
 
-      .stamp {
-        grid-column: 5 / 6;
-        grid-row: 1 / 2;
-        padding-right: 5px;
-        z-index: 2;
-      }
-
       .tofrom {
         grid-column: 4 / 6;
         grid-row: 2 / 5;
-        font-size: 22px;
+        font-size: 20px;
       }
 
-      .tofrom ::slotted(*) {
-        margin-left: 20%;
-        margin-right: 20%;
-        margin-bottom: 1px;
-        border-radius: 1px 3px 1px 2px;
+      .tofrom ::slotted(*),
+      .tofrom .toContent,
+      .tofrom .fromContent {
+        width: 270px;
+        margin: auto;
+        opacity: 0.8;
+        text-align: center;
       }
 
       .to {
-        padding-bottom: 120px;
+        height: 150px;
+        margin-bottom: 20px;
+      }
+
+      .to ::slotted(*),
+      .to .toContent {
+        height: 100px;
+        font-size: 40px;
+        font-weight: bolder;
+        letter-spacing: 2px;
+        line-height: 1.25;
+        margin-top: 12px;
+        overflow: hidden;
       }
 
       .from {
+        height: 140px;
+      }
+
+      .from ::slotted(*),
+      .from .fromContent {
+        height: 70px;
+        font-size: 22px;
+        font-weight: bolder;
+        letter-spacing: 1px;
+        line-height: 1;
+        margin-top: 8px;
+        overflow: hidden;
+        display: flex;
+        place-content: flex-end center;
+        align-items: flex-end;
       }
 
       h2,
@@ -185,26 +210,27 @@ export class PostCard extends LitElement {
 
       .message {
         grid-column: 1 / 3;
-        grid-row: 3 / 5;
-        padding-right: 30px;
-        align-items: center;
+        grid-row: 2 / 5;
+        padding-right: 20px;
         padding-bottom: 20px;
-        padding-top: 150px;
-        font-size: 18px;
+        padding-top: 200px;
+        font-size: 22px;
+        margin: auto;
       }
 
-      /* @media screen and (min-width: 300px) and (max-width: 650px) {
-        :host {
-          transform: scale(.3);
-          transition: all 0.35s ease-in-out;
-        }
+      .message ::slotted(*),
+      .message .messageContent {
+        width: 270px;
+        height: 100px;
+        font-weight: bolder;
+        text-align: center;
+        line-height: 1.1;
+        overflow: hidden;
+        align-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-      @media screen and (min-width: 650px) and (max-width: 1000px) {
-        :host {
-          transform: scale(.8);
-          transition: all 0.35s ease-in-out;
-        }
-      } */
 
       /* Query sizes sourced from: https://www.geeksforgeeks.org/how-to-target-desktop-tablet-and-mobile-using-media-query/ */
       @media (max-width: 370px) {
@@ -244,12 +270,7 @@ export class PostCard extends LitElement {
     `;
   }
 
-  /*
-  Will need to use Z index for layering 
-  */
   render() {
-    // console.log(navigator.language); // Leave this in for now, using to test something with I18N
-
     return html`
       <div class="entireCard" tabindex="0">
         <div class="backgroundLines">
@@ -259,35 +280,39 @@ export class PostCard extends LitElement {
         <div class="foregroundElements">
           <div class="postage">
             <post-card-postmark
+              class="postmark"
               locations="${this.postMarkLocations}"
             ></post-card-postmark>
+            <post-card-stamp
+              class="stamp"
+              image="${this.stampSrc}"
+            ></post-card-stamp>
           </div>
           <div class="image">
             <post-card-photo image="${this.photoSrc}"></post-card-photo>
           </div>
-          <div class="stamp">
-            <post-card-stamp image="${this.stampSrc}"></post-card-stamp>
-          </div>
           <div class="tofrom">
             <div class="to">
               <h3>${this.t.send}</h3>
-              <slot name="to">${this.to}</slot>
+              <slot name="to"><div class="toContent">${this.to}</div></slot>
             </div>
             <div class="from">
-              <h3>${this.t.receive}</h3>
-              <slot name="from">${this.from}</slot>
+              <h3>${this.t.receive}:</h3>
+              <slot name="from"
+                ><div class="fromContent">${this.from}</div></slot
+              >
             </div>
           </div>
           <div class="message">
-            <slot name="message">${this.message}</slot>
+            <slot name="message"
+              ><div class="messageContent">${this.message}</div></slot
+            >
           </div>
         </div>
       </div>
     `;
   }
 
-  // HAX specific callback
-  // This teaches HAX how to edit and work with your web component
   /**
    * haxProperties integration via file reference
    */

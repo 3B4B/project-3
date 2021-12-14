@@ -29,7 +29,7 @@ export class PostCardPhoto extends SimpleColors {
       ...super.styles,
       css`
         :host {
-          --img-width: 325px;
+          --img-width: 340px;
         }
 
         div {

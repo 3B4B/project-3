@@ -1,12 +1,12 @@
 {
-  "name": "@lrnwebcomponents/post-card",
-  "description": "HAX Capable web component to build a better future",
+  "name": "@3b4b/post-card",
+  "description": "HAX Capable web component made to emulate a post card",
   "license": "Apache-2.0",
-  "author": "btopro",
+  "author": "project-three",
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elmsln/project-3.git"
+    "url": "https://github.com/3B4B/project-3.git"
   },
   "scripts": {
     "lint": "eslint --ext .js,.html . --ignore-path .gitignore && prettier \"**/*.js\" --check --ignore-path .gitignore",
