@@ -3,7 +3,7 @@
   "description": "HAX Capable web component made to emulate a post card",
   "license": "Apache-2.0",
   "author": "project-three",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/3B4B/project-3.git"
