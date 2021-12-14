@@ -7,7 +7,6 @@ export class PostCardStamp extends SimpleColors {
     super();
     this.accentColor = 'grey';
     this.image = new URL(this.image, import.meta.url).href;
-    this.alt = 'Stamp';
   }
 
   static get tag() {
@@ -18,7 +17,6 @@ export class PostCardStamp extends SimpleColors {
     return {
       ...super.properties,
       image: { type: String, reflect: true },
-      alt: { type: String },
     };
   }
 
@@ -65,7 +63,7 @@ export class PostCardStamp extends SimpleColors {
           alt=""
           class="stampBackground"
         />
-        <img src="${this.image}" alt="${this.alt}" class="stampImage" />
+        <img src="${this.image}" alt="" class="stampImage" />
       </div>
     `;
   }
