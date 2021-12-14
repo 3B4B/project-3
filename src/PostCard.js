@@ -1,6 +1,5 @@
-// dependencies / things imported
+// CREATIVE COMMONS CREDIT: All graphics and visuals gathered from: https://remixer.visualthinkery.com/a/OEG-postcard based on: https://creativecommons.org/licenses/by-sa/4.0/?ref=fahim.pages.dev
 import { LitElement, html, css } from 'lit';
-// CREATIVE COMMONS CREDIT: All graphics and visuals gathered from: https://remixer.visualthinkery.com/a/OEG-postcard
 
 export class PostCard extends LitElement {
   static get tag() {
@@ -84,12 +83,6 @@ export class PostCard extends LitElement {
         font-family: 'Patrick Hand', cursive;
       }
 
-      /* Used for scaffolding, remove later 
-      div {
-        border: 2px dotted purple;
-      }
-      */
-
       .backgroundLines {
         display: block;
         z-index: 1;
@@ -97,10 +90,6 @@ export class PostCard extends LitElement {
         border: none;
         width: var(--width-body);
         height: calc(var(--width-body) * (2 / 3));
-
-        /*Below selectors are only used to circumvent dotted lines, remove later */
-        padding: 0px;
-        border: none;
       }
 
       .label {
@@ -135,8 +124,6 @@ export class PostCard extends LitElement {
         display: inline-grid;
         grid-template-columns: 330px 1fr;
         grid-template-rows: 150px 1fr;
-
-        /* border: 5px dotted green; */
       }
 
       .stamp {
@@ -151,8 +138,6 @@ export class PostCard extends LitElement {
         z-index: 5;
         grid-area: 1 / 1 / 1 / 1;
         padding-top: 35px;
-
-        /* border: 5px dotted purple;  */
       }
 
       .image {
@@ -286,8 +271,6 @@ export class PostCard extends LitElement {
   }
 
   render() {
-    // console.log(navigator.language); // Leave this in for now, using to test something with I18N
-
     return html`
       <div class="entireCard" tabindex="0">
         <div class="backgroundLines">
@@ -330,8 +313,6 @@ export class PostCard extends LitElement {
     `;
   }
 
-  // HAX specific callback
-  // This teaches HAX how to edit and work with your web component
   /**
    * haxProperties integration via file reference
    */
