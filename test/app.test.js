@@ -8,6 +8,7 @@ import '../src/PostCardStamp.js';
 
 describe('PostCard', () => {
   let element;
+
   beforeEach(async () => {
     element = await fixture(
       html`<post-card
@@ -18,6 +19,21 @@ describe('PostCard', () => {
         message="To make a baby...."
       ></post-card>`
     );
+  });
+
+  it('renders a div', () => {
+    console.log(element);
+    const div = element.shadowRoot.querySelector('div');
+    console.log(`Element is: ${div}`);
+    expect(div).to.exist;
+    // expect(p.textContent).to.equal('Egypt');
+  });
+
+  it('renders an h3', () => {
+    const h3 = element.shadowRoot.querySelector('h3');
+    console.log(`Element is: ${h3}`);
+    expect(h3).to.exist;
+    // expect(p.textContent).to.equal('Egypt');
   });
 
   it('renders a post-card', () => {
