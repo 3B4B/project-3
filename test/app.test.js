@@ -1,10 +1,10 @@
 import { html } from 'lit';
 import { fixture, expect } from '@open-wc/testing';
 
-import '../src/PostCard.js';
-import '../src/PostCardPostmark.js';
-import '../src/PostCardPhoto.js';
-import '../src/PostCardStamp.js';
+import '../post-card.js';
+// import '../src/PostCardPostmark.js';
+// import '../src/PostCardPhoto.js';
+// import '../src/PostCardStamp.js';
 
 describe('PostCard', () => {
   let element;
@@ -21,56 +21,38 @@ describe('PostCard', () => {
     );
   });
 
-  it('renders a div', () => {
-    console.log(element);
-    const div = element.shadowRoot.querySelector('div');
-    console.log(`Element is: ${div}`);
-    expect(div).to.exist;
-    // expect(p.textContent).to.equal('Egypt');
-  });
-
   it('renders an h3', () => {
     const h3 = element.shadowRoot.querySelector('h3');
     console.log(`Element is: ${h3}`);
     expect(h3).to.exist;
-    // expect(p.textContent).to.equal('Egypt');
-  });
-
-  it('renders a post-card', () => {
-    const pc = element.shadowRoot.querySelector('post-card');
-    console.log(`Element is: ${pc}`);
-    expect(pc).to.exist;
-    // expect(p.textContent).to.equal('Egypt');
   });
 
   it('renders a post-card-photo', () => {
     const pcp = element.shadowRoot.querySelector('post-card-photo');
     expect(pcp).to.exist;
-    // expect(p.textContent).to.equal('Egypt');
   });
 
   it('renders a post-card-stamp', () => {
     const pcs = element.shadowRoot.querySelector('post-card-stamp');
     expect(pcs).to.exist;
-    // expect(p.textContent).to.equal('Egypt');
   });
 
   it('renders a correct To address', () => {
     const to = element.shadowRoot.querySelector('slot[name="to"]');
     expect(to).to.exist;
-    // expect(to.textContent).to.equal('Future');
+    expect(to.textContent).to.equal('Future');
   });
 
   it('renders a correct from address', () => {
     const from = element.shadowRoot.querySelector('slot[name="from"]');
     expect(from).to.exist;
-    // expect(from.textContent).to.equal('Past');
+    expect(from.textContent).to.equal('Past');
   });
 
   it('renders a correct message', () => {
     const mess = element.shadowRoot.querySelector('slot[name="message"]');
     expect(mess).to.exist;
-    // expect(mess.textContent).to.equal('To make a baby....');
+    expect(mess.textContent).to.equal('To make a baby....');
   });
 
   it('passes the a11y audit', async () => {

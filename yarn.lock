@@ -1865,7 +1865,7 @@
     "@open-wc/scoped-elements" "^2.0.1"
     "lit" "^2.0.0"
 
-"@open-wc/testing@^3.0.3":
+"@open-wc/testing@^3.0.0-next.5":
   "integrity" "sha512-xJYckO8X9yfWc+ltPlDZjHGTh4ldNmnYsnxNriuUUEEhV5ASdsc+5WEsIS2+9m4lQELj89rNQ7YvhYhawDorhg=="
   "resolved" "https://registry.npmjs.org/@open-wc/testing/-/testing-3.0.3.tgz"
   "version" "3.0.3"
